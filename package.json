@@ -1,0 +1,27 @@
+{
+  "name": "portfolio_kashvi-aagrawal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/output.css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/output.css --watch",
+    "dev": "npm run watch:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kashvi147/My-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kashvi147/My-portfolio/issues"
+  },
+  "homepage": "https://github.com/kashvi147/My-portfolio#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}
