@@ -76,16 +76,26 @@ form?.addEventListener("submit", (e) => {
   }, 2500);
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("opacity-100", "translate-y-0");
-        entry.target.classList.remove("opacity-0", "translate-y-6");
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-);
+function initAOS() {
+  if (typeof AOS === "undefined") return;
 
-document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  AOS.init({
+    duration: 650,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 60,
+    delay: 0,
+    mirror: false,
+    disable: prefersReducedMotion,
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAOS);
+} else {
+  initAOS();
+}

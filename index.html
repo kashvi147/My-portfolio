@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/output.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <style>
       .nav-scrolled {
         background: rgba(10, 10, 15, 0.85);
@@ -104,7 +105,7 @@
         class="hero-glow relative flex min-h-[100dvh] items-center safe-x pb-16 pt-20 sm:px-8 sm:pt-24"
       >
         <div class="mx-auto grid w-full max-w-6xl gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
-          <div class="reveal order-2 opacity-0 translate-y-6 transition-all duration-700 lg:order-1">
+          <div class="order-2 lg:order-1" data-aos="fade-up" data-aos-duration="650">
             <p class="mb-3 text-xs font-medium uppercase tracking-widest text-violet-400 sm:mb-4 sm:text-sm">
               Hello, I'm
             </p>
@@ -154,7 +155,7 @@
             </div>
           </div>
 
-          <div class="reveal order-1 flex justify-center opacity-0 translate-y-6 transition-all duration-700 delay-150 lg:order-2 lg:justify-end">
+          <div class="order-1 flex justify-center lg:order-2 lg:justify-end" data-aos="fade-up" data-aos-duration="650" data-aos-delay="100">
             <div class="relative w-full max-w-[280px] sm:max-w-none">
               <div class="absolute -inset-3 rounded-3xl bg-violet-600/20 blur-2xl sm:-inset-4"></div>
               <div class="relative mx-auto flex aspect-square w-[min(100%,280px)] items-center justify-center rounded-3xl border border-[#2a2a3a] bg-[#1a1a24] sm:h-72 sm:w-72 md:h-80 md:w-80">
@@ -168,11 +169,11 @@
       <!-- About -->
       <section id="about" class="safe-x py-16 sm:px-8 sm:py-28">
         <div class="mx-auto max-w-6xl">
-          <div class="reveal mb-6 opacity-0 translate-y-6 text-center transition-all duration-700 sm:text-left">
+          <div class="mb-6 text-center sm:text-left" data-aos="fade-right" data-aos-duration="650">
             <span class="text-xs font-semibold uppercase tracking-widest text-violet-400 sm:text-sm">About Me</span>
             <h2 class="font-display mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl">Who Am I</h2>
           </div>
-          <div class="reveal mt-6 w-full opacity-0 translate-y-6 transition-all duration-700">
+          <div class="mt-6 w-full" data-aos="fade-right" data-aos-duration="650" data-aos-delay="75">
             <p class="text-left text-sm leading-relaxed text-slate-400 sm:text-base md:text-lg">
                 I'm Kashvi Agrawal, a B.Tech student in Robotics and Artificial Intelligence at Jaypee Institute of Information Technology with a strong passion for technology and innovation.
                 My interests lie at the intersection of software and hardware, where I explore areas such as Web Development, IoT, Embedded Systems, Artificial Intelligence, and MATLAB. I'm fascinated by how technology can be used to solve real-world problems and create meaningful impact.
@@ -182,17 +183,18 @@
           </div>
  
  
-          <div class="reveal mt-10 grid grid-cols-1 gap-4 opacity-0 translate-y-6 transition-all duration-700 min-[480px]:grid-cols-2 sm:mt-12 md:grid-cols-3">
+          <div class="mt-10 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 sm:mt-12 md:grid-cols-3">
             <div class="rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 text-center card-hover cursor-pointer sm:p-6"
+                 data-aos="fade-right" data-aos-duration="650" data-aos-delay="100"
                  onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });">
               <p class="font-display text-2xl font-bold text-violet-400 sm:text-3xl">10+</p>
               <p class="mt-1 text-sm text-slate-400">Projects Built</p>
             </div>
-            <div class="rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 text-center card-hover sm:p-6 min-[480px]:col-span-2 md:col-span-1">
+            <div class="rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 text-center card-hover sm:p-6 min-[480px]:col-span-2 md:col-span-1" data-aos="fade-right" data-aos-duration="650" data-aos-delay="175">
               <p class="font-display text-xl font-bold leading-tight text-violet-400 sm:text-2xl md:text-3xl">Robotics &amp; AI</p>
               <p class="mt-1 text-sm text-slate-400">Student @ JIIT</p>
             </div>
-            <div class="rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 text-center card-hover sm:p-6 min-[480px]:col-span-1 md:col-span-1">
+            <div class="rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 text-center card-hover sm:p-6 min-[480px]:col-span-1 md:col-span-1" data-aos="fade-right" data-aos-duration="650" data-aos-delay="250">
               <p class="font-display text-2xl font-bold text-violet-400 sm:text-3xl">∞</p>
               <p class="mt-1 text-sm text-slate-400">Curiosity to Learn</p>
             </div>
@@ -203,7 +205,7 @@
       <!-- Skills -->
       <section id="skills" class="bg-[#12121a] safe-x py-16 sm:px-8 sm:py-28">
         <div class="mx-auto max-w-6xl">
-          <div class="reveal mb-10 opacity-0 translate-y-6 text-center transition-all duration-700 sm:mb-14">
+          <div class="mb-10 text-center sm:mb-14" data-aos="fade-up" data-aos-duration="650">
             <span class="text-xs font-semibold uppercase tracking-widest text-violet-400 sm:text-sm">Skills</span>
             <h2 class="font-display mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl">What I Work With</h2>
             <p class="mx-auto mt-3 max-w-2xl px-2 text-sm text-slate-400 sm:mt-4 sm:text-base">
@@ -211,9 +213,9 @@
             </p>
           </div>
 
-          <div class="reveal grid grid-cols-1 gap-4 opacity-0 translate-y-6 transition-all duration-700 min-[480px]:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          <div class="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             <!-- Programming Languages Card -->
-            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6">
+            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="0">
               <h3 class="font-display mb-3 text-center text-lg font-bold text-white sm:mb-4 sm:text-xl">Programming Languages</h3>
               <div class="flex flex-wrap justify-center gap-2 mt-2">
                 <span class="skill-badge">C++</span>
@@ -222,21 +224,21 @@
               </div>
             </div>
             <!-- Web Technologies Card -->
-            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6">
+            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
               <h3 class="font-display mb-3 text-center text-lg font-bold text-white sm:mb-4 sm:text-xl">Web Technologies</h3>
               <div class="flex flex-wrap justify-center gap-2 mt-2">
                 <span class="skill-badge">Web Development</span>
               </div>
             </div>
             <!-- Artificial Intelligence Card -->
-            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6">
+            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
               <h3 class="font-display mb-3 text-center text-lg font-bold text-white sm:mb-4 sm:text-xl">Artificial Intelligence</h3>
               <div class="flex flex-wrap justify-center gap-2 mt-2">
                 <span class="skill-badge">AI-Powered Development</span>
               </div>
             </div>
             <!-- Embedded & Robotics Card -->
-            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6">
+            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
               <h3 class="font-display mb-3 text-center text-lg font-bold leading-snug text-white sm:mb-4 sm:text-xl">Embedded &amp; Robotics</h3>
               <div class="flex flex-wrap justify-center gap-2 mt-2">
                 <span class="skill-badge">Arduino</span>
@@ -245,14 +247,14 @@
               </div>
             </div>
             <!-- Engineering Analysis Card -->
-            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6">
+            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 sm:p-6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
               <h3 class="font-display mb-3 text-center text-lg font-bold text-white sm:mb-4 sm:text-xl">Engineering Analysis</h3>
               <div class="flex flex-wrap justify-center gap-2 mt-2">
                 <span class="skill-badge">MATLAB</span>
               </div>
             </div>
             <!-- CAD & Design Card -->
-            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 min-[480px]:col-span-2 sm:p-6 lg:col-span-1">
+            <div class="card-hover flex flex-col items-center rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 shadow-md transition-all duration-300 min-[480px]:col-span-2 sm:p-6 lg:col-span-1" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="500">
               <h3 class="font-display mb-3 text-center text-lg font-bold text-white sm:mb-4 sm:text-xl">CAD &amp; Design</h3>
               <div class="flex flex-wrap justify-center gap-2 mt-2">
                 <span class="skill-badge">AutoCAD</span>
@@ -265,7 +267,7 @@
       <!-- Projects -->
       <section id="projects" class="safe-x py-16 sm:px-8 sm:py-28">
         <div class="mx-auto max-w-6xl">
-          <div class="reveal mb-10 opacity-0 translate-y-6 text-center transition-all duration-700 sm:mb-14">
+          <div class="mb-10 text-center sm:mb-14" data-aos="fade-up" data-aos-duration="650">
             <span class="text-xs font-semibold uppercase tracking-widest text-violet-400 sm:text-sm">Projects</span>
             <h2 class="font-display mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl">Featured Work</h2>
             <p class="mx-auto mt-3 max-w-2xl px-2 text-sm text-slate-400 sm:mt-4 sm:text-base">
@@ -274,7 +276,7 @@
           </div>
 
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-            <article class="reveal opacity-0 translate-y-6 transition-all duration-700 flex flex-col overflow-hidden rounded-2xl border border-[#2a2a3a] bg-[#12121a] card-hover">
+            <article class="flex flex-col overflow-hidden rounded-2xl border border-[#2a2a3a] bg-[#12121a] card-hover" data-aos="fade-up" data-aos-duration="650" data-aos-delay="0">
               <div class="flex h-40 items-center justify-center bg-gradient-to-br from-violet-900/40 to-cyan-900/30">
                 <span class="text-4xl">🌐</span>
               </div>
@@ -292,7 +294,7 @@
               </div>
             </article>
 
-            <article class="reveal opacity-0 translate-y-6 transition-all duration-700 flex flex-col overflow-hidden rounded-2xl border border-[#2a2a3a] bg-[#12121a] card-hover">
+            <article class="flex flex-col overflow-hidden rounded-2xl border border-[#2a2a3a] bg-[#12121a] card-hover" data-aos="fade-up" data-aos-duration="650" data-aos-delay="100">
               <div class="flex h-40 items-center justify-center bg-gradient-to-br from-violet-900/40 to-cyan-900/30">
                 <span class="text-4xl">📋</span>
               </div>
@@ -309,7 +311,7 @@
               </div>
             </article>
 
-            <article class="reveal flex flex-col overflow-hidden rounded-2xl border border-[#2a2a3a] bg-[#12121a] opacity-0 translate-y-6 card-hover transition-all duration-700">
+            <article class="flex flex-col overflow-hidden rounded-2xl border border-[#2a2a3a] bg-[#12121a] card-hover" data-aos="fade-up" data-aos-duration="650" data-aos-delay="200">
               <div class="flex h-40 items-center justify-center bg-gradient-to-br from-violet-900/40 to-cyan-900/30">
                 <span class="text-4xl">🤖</span>
               </div>
@@ -332,7 +334,7 @@
       <!-- Achievements -->
       <section id="achievements" class="bg-[#12121a] safe-x py-16 sm:px-8 sm:py-28">
         <div class="mx-auto max-w-6xl">
-          <div class="reveal mb-10 opacity-0 translate-y-6 text-center transition-all duration-700 sm:mb-14">
+          <div class="mb-10 text-center sm:mb-14" data-aos="fade-up" data-aos-duration="650">
             <span class="text-xs font-semibold uppercase tracking-widest text-violet-400 sm:text-sm">Achievements</span>
             <h2 class="font-display mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl">Milestones</h2>
             <p class="mx-auto mt-3 max-w-2xl px-2 text-sm text-slate-400 sm:mt-4 sm:text-base">
@@ -340,8 +342,8 @@
             </p>
           </div>
 
-          <div class="reveal space-y-4 opacity-0 translate-y-6 transition-all duration-700 sm:space-y-6">
-            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6">
+          <div class="space-y-4 sm:space-y-6">
+            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6" data-aos="fade-up" data-aos-duration="650" data-aos-delay="0">
               <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-600/20 text-xl">🏆</div>
               <div>
                 <h3 class="font-display font-semibold text-white">Hackathon Participant</h3>
@@ -349,7 +351,7 @@
                 <p class="mt-2 text-xs text-violet-400">2024 – Present</p>
               </div>
             </div>
-            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6">
+            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6" data-aos="fade-up" data-aos-duration="650" data-aos-delay="75">
               <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-600/20 text-xl">📜</div>
               <div>
                 <h3 class="font-display font-semibold text-white">Certifications & Courses</h3>
@@ -357,7 +359,7 @@
                 <p class="mt-2 text-xs text-violet-400">Self-paced learning</p>
               </div>
             </div>
-            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6">
+            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6" data-aos="fade-up" data-aos-duration="650" data-aos-delay="150">
               <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-600/20 text-xl">🎯</div>
               <div>
                 <h3 class="font-display font-semibold text-white">Open Source Contributor</h3>
@@ -367,7 +369,7 @@
                 </p>
               </div>
             </div>
-            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6">
+            <div class="card-hover flex flex-col gap-4 rounded-2xl border border-[#2a2a3a] bg-[#1a1a24] p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-6" data-aos="fade-up" data-aos-duration="650" data-aos-delay="225">
               <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-600/20 text-xl">🎓</div>
               <div>
                 <h3 class="font-display font-semibold text-white">Academic Excellence</h3>
@@ -382,8 +384,8 @@
       <!-- Contact -->
       <section id="contact" class="safe-x py-16 sm:px-8 sm:py-28">
         <div class="mx-auto max-w-6xl">
-          <div class="reveal grid grid-cols-1 gap-10 opacity-0 translate-y-6 transition-all duration-700 lg:grid-cols-2 lg:gap-16">
-            <div class="min-w-0 text-center lg:text-left">
+          <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+            <div class="min-w-0 text-center lg:text-left" data-aos="fade-up" data-aos-duration="650">
               <span class="text-xs font-semibold uppercase tracking-widest text-violet-400 sm:text-sm">Contact</span>
               <h2 class="font-display mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl">Let's Connect</h2>
               <p class="mt-4 text-sm leading-relaxed text-slate-400 sm:text-base">
@@ -401,7 +403,7 @@
               </ul>
             </div>
 
-            <form id="contact-form" class="w-full min-w-0 rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 sm:p-8">
+            <form id="contact-form" class="w-full min-w-0 rounded-2xl border border-[#2a2a3a] bg-[#12121a] p-5 sm:p-8" data-aos="fade-up" data-aos-duration="650" data-aos-delay="100">
               <div class="space-y-5">
                 <div>
                   <label for="name" class="mb-2 block text-sm font-medium text-slate-300">Name</label>
@@ -462,6 +464,7 @@
       </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
