@@ -134,3 +134,74 @@ section[id] {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
+
+/* ========== Light mode (dark mode toggle) ========== */
+html.light-mode body {
+  color: #334155;
+}
+
+html.light-mode .bg-\[\#0a0a0f\],
+html.light-mode .bg-\[\#0a0a0f\]\/98 {
+  background-color: #f8fafc !important;
+}
+
+html.light-mode .bg-\[\#12121a\] {
+  background-color: #ffffff !important;
+}
+
+html.light-mode .bg-\[\#1a1a24\] {
+  background-color: #f1f5f9 !important;
+}
+
+html.light-mode .border-\[\#2a2a3a\] {
+  border-color: #cbd5e1 !important;
+}
+
+html.light-mode .text-white {
+  color: #0f172a !important;
+}
+
+html.light-mode .text-slate-200,
+html.light-mode .text-slate-300 {
+  color: #475569 !important;
+}
+
+html.light-mode .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light-mode .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.light-mode .hero-glow {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    rgba(139, 92, 246, 0.12),
+    transparent
+  );
+}
+
+html.light-mode .nav-scrolled {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-bottom-color: #cbd5e1 !important;
+}
+
+html.light-mode .skill-badge {
+  color: #5b21b6;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+html.light-mode input,
+html.light-mode textarea {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
+html.light-mode .gradient-text {
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #0891b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

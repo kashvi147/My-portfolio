@@ -1,15 +1,108 @@
+// ============================================
+// Portfolio — beginner-friendly JavaScript
+// ============================================
+
+// --- Grab elements we need ---
+const html = document.documentElement;
 const nav = document.getElementById("navbar");
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 const menuIconOpen = document.getElementById("menu-icon-open");
 const menuIconClose = document.getElementById("menu-icon-close");
 const navLinks = document.querySelectorAll("[data-nav]");
+const themeToggle = document.getElementById("theme-toggle");
+const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+const form = document.getElementById("contact-form");
+
+// How far from top before navbar gets a background (pixels)
+const NAVBAR_SCROLL_OFFSET = 24;
+// Space above section when scrolling (for fixed navbar)
+const SCROLL_OFFSET = 80;
+
+
+// ============================================
+// 1. DARK MODE (toggle light / dark)
+// ============================================
+
+function updateThemeIcons() {
+  const isLight = html.classList.contains("light-mode");
+
+  // Desktop
+  const darkIcon = document.getElementById("theme-icon-dark");
+  const lightIcon = document.getElementById("theme-icon-light");
+  if (darkIcon && lightIcon) {
+    // Use provided SVG for the moon icon (dark theme)
+    // Make sure it matches the site's purple accent
+    darkIcon.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-moon-icon lucide-moon">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+      </svg>
+    `;
+    // Minimal sun outline for light theme
+    const accent = "#a78bfa";
+    lightIcon.innerHTML = `
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="6" fill="none" stroke="${accent}" stroke-width="1.5"/>
+        <g stroke="${accent}" stroke-width="1.2">
+          <line x1="12" y1="2.6" x2="12" y2="5.1"/>
+          <line x1="12" y1="18.9" x2="12" y2="21.4"/>
+          <line x1="2.6" y1="12" x2="5.1" y2="12"/>
+          <line x1="18.9" y1="12" x2="21.4" y2="12"/>
+          <line x1="5.75" y1="5.75" x2="7.4" y2="7.4"/>
+          <line x1="16.6" y1="16.6" x2="18.25" y2="18.25"/>
+          <line x1="5.75" y1="18.25" x2="7.4" y2="16.6"/>
+          <line x1="16.6" y1="7.4" x2="18.25" y2="5.75"/>
+        </g>
+      </svg>
+    `;
+    darkIcon.classList.toggle("hidden", isLight);
+    lightIcon.classList.toggle("hidden", !isLight);
+  }
+
+  // Mobile icons
+  const darkIconMobile = document.getElementById("theme-icon-dark-mobile");
+  const lightIconMobile = document.getElementById("theme-icon-light-mobile");
+  if (darkIconMobile) darkIconMobile.classList.toggle("hidden", isLight);
+  if (lightIconMobile) lightIconMobile.classList.toggle("hidden", !isLight);
+}
+
+function toggleTheme() {
+  // Add or remove "light-mode" class on <html>
+  html.classList.toggle("light-mode");
+
+  // Remember choice in browser storage
+  if (html.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+
+  updateThemeIcons();
+}
+
+// Run once on page load (theme may already be set in <head>)
+updateThemeIcons();
+
+// Both buttons do the same thing
+if (themeToggle) {
+  themeToggle.addEventListener("click", toggleTheme);
+}
+if (themeToggleMobile) {
+  themeToggleMobile.addEventListener("click", toggleTheme);
+}
+
+
+// ============================================
+// 2. MOBILE NAVBAR (hamburger menu)
+// ============================================
 
 function setMenuOpen(isOpen) {
   mobileMenu.classList.toggle("hidden", !isOpen);
   menuBtn.setAttribute("aria-expanded", String(isOpen));
-  menuIconOpen?.classList.toggle("hidden", isOpen);
-  menuIconClose?.classList.toggle("hidden", !isOpen);
+  menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  menuIconOpen.classList.toggle("hidden", isOpen);
+  menuIconClose.classList.toggle("hidden", !isOpen);
+  // Stop page scrolling behind open menu
   document.body.classList.toggle("overflow-hidden", isOpen);
 }
 
@@ -17,44 +110,53 @@ function closeMobileMenu() {
   setMenuOpen(false);
 }
 
-menuBtn?.addEventListener("click", () => {
-  const isOpen = mobileMenu.classList.contains("hidden");
-  setMenuOpen(isOpen);
+function openMobileMenu() {
+  setMenuOpen(true);
+}
+
+// Click hamburger to open or close
+menuBtn.addEventListener("click", function () {
+  const isHidden = mobileMenu.classList.contains("hidden");
+  if (isHidden) {
+    openMobileMenu();
+  } else {
+    closeMobileMenu();
+  }
 });
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => closeMobileMenu());
+// Close menu when a nav link is clicked
+navLinks.forEach(function (link) {
+  link.addEventListener("click", closeMobileMenu);
 });
 
-window.addEventListener(
-  "resize",
-  () => {
-    if (window.matchMedia("(min-width: 768px)").matches) {
-      closeMobileMenu();
-    }
-  },
-  { passive: true }
-);
+// Close menu on desktop-sized screens
+window.addEventListener("resize", function () {
+  if (window.innerWidth >= 768) {
+    closeMobileMenu();
+  }
+});
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 24) {
+// Navbar background when user scrolls down
+window.addEventListener("scroll", function () {
+  if (window.scrollY > NAVBAR_SCROLL_OFFSET) {
     nav.classList.add("nav-scrolled");
   } else {
     nav.classList.remove("nav-scrolled");
   }
 
+  // Highlight active section link
   const sections = document.querySelectorAll("section[id]");
-  let current = "";
+  let currentSection = "";
 
-  sections.forEach((section) => {
-    const top = section.offsetTop - 120;
-    if (window.scrollY >= top) {
-      current = section.getAttribute("id");
+  sections.forEach(function (section) {
+    const sectionTop = section.offsetTop - SCROLL_OFFSET;
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute("id");
     }
   });
 
-  navLinks.forEach((link) => {
-    const isActive = link.getAttribute("href") === `#${current}`;
+  navLinks.forEach(function (link) {
+    const isActive = link.getAttribute("href") === "#" + currentSection;
     link.classList.toggle("text-violet-400", isActive);
     if (!link.closest("#mobile-menu")) {
       link.classList.toggle("text-slate-400", !isActive);
@@ -62,22 +164,69 @@ window.addEventListener("scroll", () => {
   });
 });
 
-const form = document.getElementById("contact-form");
-form?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const btn = form.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = "Message sent!";
-  btn.disabled = true;
-  setTimeout(() => {
-    form.reset();
-    btn.textContent = original;
-    btn.disabled = false;
-  }, 2500);
+
+// ============================================
+// 3. SMOOTH SCROLLING (click links → scroll)
+// ============================================
+
+// All links that start with # (same-page sections)
+const pageLinks = document.querySelectorAll('a[href^="#"]');
+
+pageLinks.forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    const href = link.getAttribute("href");
+
+    // Skip empty hash
+    if (!href || href === "#") {
+      return;
+    }
+
+    const target = document.querySelector(href);
+
+    if (target) {
+      event.preventDefault();
+
+      const targetTop =
+        target.getBoundingClientRect().top + window.scrollY - SCROLL_OFFSET;
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: "smooth",
+      });
+    }
+  });
 });
 
+
+// ============================================
+// Contact form (demo message)
+// ============================================
+
+if (form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = "Message sent!";
+    btn.disabled = true;
+
+    setTimeout(function () {
+      form.reset();
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }, 2500);
+  });
+}
+
+
+// ============================================
+// AOS scroll animations
+// ============================================
+
 function initAOS() {
-  if (typeof AOS === "undefined") return;
+  if (typeof AOS === "undefined") {
+    return;
+  }
 
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"

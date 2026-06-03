@@ -6,7 +6,6 @@
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-cyan-900: oklch(39.8% 0.07 227.392);
     --color-violet-300: oklch(81.1% 0.111 293.571);
     --color-violet-400: oklch(70.2% 0.183 293.541);
@@ -310,6 +309,9 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
   .h-11 {
     height: calc(var(--spacing) * 11);
   }
@@ -333,6 +335,9 @@
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
   }
   .w-11 {
     width: calc(var(--spacing) * 11);
@@ -369,14 +374,6 @@
   }
   .grow {
     flex-grow: 1;
-  }
-  .translate-y-0 {
-    --tw-translate-y: calc(var(--spacing) * 0);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-y-6 {
-    --tw-translate-y: calc(var(--spacing) * 6);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -675,12 +672,6 @@
       color: var(--color-slate-500);
     }
   }
-  .opacity-0 {
-    opacity: 0%;
-  }
-  .opacity-100 {
-    opacity: 100%;
-  }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -708,16 +699,9 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .delay-150 {
-    transition-delay: 150ms;
-  }
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
-  }
-  .duration-700 {
-    --tw-duration: 700ms;
-    transition-duration: 700ms;
   }
   .outline-none {
     --tw-outline-style: none;
@@ -1207,20 +1191,54 @@ section[id] {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
-@property --tw-translate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
+html.light-mode body {
+  color: #334155;
 }
-@property --tw-translate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
+html.light-mode .bg-\[\#0a0a0f\], html.light-mode .bg-\[\#0a0a0f\]\/98 {
+  background-color: #f8fafc !important;
 }
-@property --tw-translate-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
+html.light-mode .bg-\[\#12121a\] {
+  background-color: #ffffff !important;
+}
+html.light-mode .bg-\[\#1a1a24\] {
+  background-color: #f1f5f9 !important;
+}
+html.light-mode .border-\[\#2a2a3a\] {
+  border-color: #cbd5e1 !important;
+}
+html.light-mode .text-white {
+  color: #0f172a !important;
+}
+html.light-mode .text-slate-200, html.light-mode .text-slate-300 {
+  color: #475569 !important;
+}
+html.light-mode .text-slate-400 {
+  color: #64748b !important;
+}
+html.light-mode .text-slate-500 {
+  color: #94a3b8 !important;
+}
+html.light-mode .hero-glow {
+  background: radial-gradient( ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.12), transparent );
+}
+html.light-mode .nav-scrolled {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-bottom-color: #cbd5e1 !important;
+}
+html.light-mode .skill-badge {
+  color: #5b21b6;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+html.light-mode input, html.light-mode textarea {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+html.light-mode .gradient-text {
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 50%, #0891b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -1447,9 +1465,6 @@ section[id] {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-translate-x: 0;
-      --tw-translate-y: 0;
-      --tw-translate-z: 0;
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-gradient-position: initial;
