@@ -17,7 +17,7 @@ const form = document.getElementById("contact-form");
 // How far from top before navbar gets a background (pixels)
 const NAVBAR_SCROLL_OFFSET = 24;
 // Space above section when scrolling (for fixed navbar)
-const SCROLL_OFFSET = 80;
+const SCROLL_OFFSET = 64;
 
 
 // ============================================
