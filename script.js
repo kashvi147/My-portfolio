@@ -10,6 +10,7 @@ const mobileMenu = document.getElementById("mobile-menu");
 const menuIconOpen = document.getElementById("menu-icon-open");
 const menuIconClose = document.getElementById("menu-icon-close");
 const navLinks = document.querySelectorAll("[data-nav]");
+const sections = document.querySelectorAll("section[id]");
 const themeToggle = document.getElementById("theme-toggle");
 const themeToggleMobile = document.getElementById("theme-toggle-mobile");
 const form = document.getElementById("contact-form");
@@ -70,6 +71,88 @@ function updateThemeIcons() {
   }
 }
 
+function initHeroAnimations() {
+  if (typeof Typed !== "undefined") {
+    new Typed("#typed-text", {
+      strings: [
+        "Web development that feels polished.",
+        "Embedded systems built to work reliably.",
+        "AI and robotics solutions with real purpose.",
+      ],
+      typeSpeed: 55,
+      backSpeed: 35,
+      backDelay: 2200,
+      startDelay: 600,
+      loop: true,
+      showCursor: true,
+      cursorChar: "|",
+      smartBackspace: false,
+      autoInsertCss: false,
+    });
+  }
+
+  if (typeof tsParticles !== "undefined") {
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 22,
+          density: {
+            enable: true,
+            area: 900,
+          },
+        },
+        color: {
+          value: "#a78bfa",
+        },
+        shape: {
+          type: "circle",
+        },
+        opacity: {
+          value: 0.16,
+          random: {
+            enable: true,
+            minimumValue: 0.05,
+          },
+        },
+        size: {
+          value: {
+            min: 1,
+            max: 3,
+          },
+          random: true,
+        },
+        move: {
+          enable: true,
+          speed: 0.35,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: {
+            default: "out",
+          },
+        },
+      },
+      interactivity: {
+        detectsOn: "canvas",
+        events: {
+          onHover: {
+            enable: false,
+          },
+          onClick: {
+            enable: false,
+          },
+          resize: true,
+        },
+      },
+      detectRetina: true,
+      background: {
+        color: "transparent",
+      },
+    });
+  }
+}
+
 function toggleTheme() {
   // Add or remove "light-mode" class on <html>
   html.classList.toggle("light-mode");
@@ -86,6 +169,7 @@ function toggleTheme() {
 
 // Run once on page load (theme may already be set in <head>)
 updateThemeIcons();
+initHeroAnimations();
 
 // Both buttons do the same thing
 if (themeToggle) {
@@ -141,15 +225,15 @@ window.addEventListener("resize", function () {
 });
 
 // Navbar background when user scrolls down
-window.addEventListener("scroll", function () {
+let scrollScheduled = false;
+
+function updateScrollState() {
   if (window.scrollY > NAVBAR_SCROLL_OFFSET) {
     nav.classList.add("nav-scrolled");
   } else {
     nav.classList.remove("nav-scrolled");
   }
 
-  // Highlight active section link
-  const sections = document.querySelectorAll("section[id]");
   let currentSection = "";
 
   sections.forEach(function (section) {
@@ -166,6 +250,16 @@ window.addEventListener("scroll", function () {
       link.classList.toggle("text-slate-400", !isActive);
     }
   });
+}
+
+window.addEventListener("scroll", function () {
+  if (!scrollScheduled) {
+    scrollScheduled = true;
+    requestAnimationFrame(function () {
+      updateScrollState();
+      scrollScheduled = false;
+    });
+  }
 });
 
 

@@ -5,11 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="Portfolio of Kashvi Agrawal — developer, student, and builder."
+      content="Portfolio of Kashvi Agrawal — Robotics & AI student at JIIT showcasing web apps, embedded systems, IoT, robotics, and engineering projects."
+    />
+    <meta name="keywords" content="Kashvi Agrawal, portfolio, web development, embedded systems, robotics, AI, IoT" />
+    <meta name="author" content="Kashvi Agrawal" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kashvi Agrawal | Robotics & AI Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Kashvi Agrawal, a Robotics and AI student at JIIT building polished web, embedded, and machine learning projects."
+    />
+    <meta property="og:site_name" content="Kashvi Agrawal Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kashvi Agrawal | Robotics & AI Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Explore the portfolio of Kashvi Agrawal, a Robotics and AI student at JIIT building polished web, embedded, and machine learning projects."
     />
     <title>Kashvi Agrawal | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -21,6 +43,44 @@
         background: rgba(10, 10, 15, 0.85);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(42, 42, 58, 0.8);
+      }
+
+      .hero-glow {
+        overflow: hidden;
+      }
+
+      .hero-glow::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.12), transparent 22%),
+          radial-gradient(circle at 85% 25%, rgba(79, 70, 229, 0.08), transparent 18%);
+        pointer-events: none;
+        z-index: -5;
+      }
+
+      #tsparticles {
+        position: absolute;
+        inset: 0;
+        z-index: -10;
+        pointer-events: none;
+      }
+
+      .typed-text {
+        display: inline-block;
+        white-space: pre-wrap;
+      }
+
+      .typed-cursor {
+        font-weight: 700;
+        opacity: 0.8;
+        animation: blink-cursor 0.75s step-end infinite;
+      }
+
+      @keyframes blink-cursor {
+        50% {
+          opacity: 0;
+        }
       }
     </style>
     <!-- Load saved theme before page paints (stops flash) -->
@@ -127,6 +187,7 @@
         id="hero"
         class="hero-glow relative flex min-h-[100dvh] items-center safe-x pb-16 pt-20 sm:px-8 sm:pt-24"
       >
+        <div id="tsparticles" aria-hidden="true"></div>
         <div class="mx-auto grid w-full max-w-6xl gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
           <div class="order-2 lg:order-1" data-aos="fade-up" data-aos-duration="650">
             <p class="mb-3 text-xs font-medium uppercase tracking-widest text-violet-400 sm:mb-4 sm:text-sm">
@@ -137,6 +198,9 @@
             </h1>
             <p class="mt-3 text-lg font-medium leading-snug text-slate-300 sm:mt-4 sm:text-xl md:text-2xl">
               Robotics & AI student at Jaypee Institute of Information Technology
+            </p>
+            <p class="mt-4 max-w-xl text-base text-violet-300/75 sm:text-lg">
+              <span id="typed-text" class="typed-text inline-block"></span>
             </p>
             <p class="mt-5 max-w-lg text-sm leading-relaxed text-slate-400 sm:mt-6 sm:text-base md:text-lg">
               I build polished digital experiences and practical hardware solutions using web development, embedded systems, and machine learning.
@@ -307,6 +371,8 @@
                   alt="Portfolio Website Thumbnail"
                   class="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                 />
               </div>
 
@@ -329,10 +395,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\space-stock-QhKEmb9ghJU-unsplash (3).jpg"
+                  src="src/assets/space-stock-QhKEmb9ghJU-unsplash (3).jpg"
                   alt="Campusverse Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -354,10 +422,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="Begginer-arduino-push-button-led  Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -379,10 +449,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="Push-Button-Toggle-led-  Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -404,10 +476,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="toggle-led-using-2-push-buttons-1-for-off-1-for-on Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -431,10 +505,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="smooth-led-fade-effect-using-analogWrite Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -457,10 +533,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="Knob-controlled-brightness-of-LED-using-potentiometer Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -484,10 +562,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="glow-red-LED-when-bright-and-Green-when-Dark Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -512,10 +592,12 @@
               <!-- Project Thumbnail (resized for best fit) -->
               <div class="w-full bg-[#161622] flex items-center justify-center">
                 <img 
-                  src="src\assets\Screenshot 2026-06-03 225529.png"
+                  src="src/assets/Screenshot 2026-06-03 225529.png"
                   alt="Automatic-Night-Lamp Thumbnail"
                   class="block max-h-48 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
+                  importance="low"
                   style="background: #161622;"
                 />
               </div>
@@ -674,10 +756,12 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tsparticles@3.10.2/tsparticles.min.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
   </body>
 </html>
