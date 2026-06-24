@@ -29,15 +29,15 @@ function updateThemeIcons() {
   const isLight = html.classList.contains("light-mode");
 
   const darkIconMarkup = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-moon-icon lucide-moon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4DFF7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-moon-icon lucide-moon">
       <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
     </svg>
   `;
 
   const lightIconMarkup = `
     <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="6" fill="none" stroke="#a78bfa" stroke-width="1.5"/>
-      <g stroke="#a78bfa" stroke-width="1.2">
+      <circle cx="12" cy="12" r="6" fill="none" stroke="#00E5FF" stroke-width="1.5"/>
+      <g stroke="#00E5FF" stroke-width="1.2">
         <line x1="12" y1="2.6" x2="12" y2="5.1"/>
         <line x1="12" y1="18.9" x2="12" y2="21.4"/>
         <line x1="2.6" y1="12" x2="5.1" y2="12"/>
@@ -71,86 +71,80 @@ function updateThemeIcons() {
   }
 }
 
-function initHeroAnimations() {
-  if (typeof Typed !== "undefined") {
-    new Typed("#typed-text", {
-      strings: [
-        "Web development that feels polished.",
-        "Embedded systems built to work reliably.",
-        "AI and robotics solutions with real purpose.",
-      ],
-      typeSpeed: 55,
-      backSpeed: 35,
-      backDelay: 2200,
-      startDelay: 600,
-      loop: true,
-      showCursor: true,
-      cursorChar: "|",
-      smartBackspace: false,
-      autoInsertCss: false,
-    });
+function initKBot() {
+  const trigger = document.getElementById("kbot-trigger");
+  const bubble = document.getElementById("kbot-bubble");
+  const greeting = document.getElementById("kbot-greeting");
+  const subtext = document.getElementById("kbot-subtext");
+
+  if (!trigger || !bubble || !greeting || !subtext) {
+    return;
   }
 
-  if (typeof tsParticles !== "undefined") {
-    tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      particles: {
-        number: {
-          value: 22,
-          density: {
-            enable: true,
-            area: 900,
-          },
-        },
-        color: {
-          value: "#a78bfa",
-        },
-        shape: {
-          type: "circle",
-        },
-        opacity: {
-          value: 0.16,
-          random: {
-            enable: true,
-            minimumValue: 0.05,
-          },
-        },
-        size: {
-          value: {
-            min: 1,
-            max: 3,
-          },
-          random: true,
-        },
-        move: {
-          enable: true,
-          speed: 0.35,
-          direction: "none",
-          random: true,
-          straight: false,
-          outModes: {
-            default: "out",
-          },
-        },
-      },
-      interactivity: {
-        detectsOn: "canvas",
-        events: {
-          onHover: {
-            enable: false,
-          },
-          onClick: {
-            enable: false,
-          },
-          resize: true,
-        },
-      },
-      detectRetina: true,
-      background: {
-        color: "transparent",
-      },
-    });
+  const facts = [
+    {
+      title: "10+ projects built",
+      detail: "From web apps to Arduino prototypes and IoT systems.",
+    },
+    {
+      title: "Robotics & AI @ JIIT",
+      detail: "B.Tech student focused on intelligent hardware-software systems.",
+    },
+    {
+      title: "Full-stack + embedded",
+      detail: "React, Python, C++, Arduino, and machine learning workflows.",
+    },
+    {
+      title: "Campusverse & beyond",
+      detail: "Built a campus platform and multiple embedded LED control projects.",
+    },
+    {
+      title: "Always building",
+      detail: "Turning concepts into polished, practical deliverables.",
+    },
+  ];
+
+  let factIndex = 0;
+  let showingFacts = false;
+
+  function showDefault() {
+    showingFacts = false;
+    bubble.classList.remove("is-fact");
+    greeting.textContent = "Hi! I'm K-Bot";
+    subtext.textContent = "Want a quick tour of Kashvi's projects?";
   }
+
+  function showFact(index) {
+    showingFacts = true;
+    bubble.classList.add("is-fact");
+    const fact = facts[index];
+    greeting.textContent = fact.title;
+    subtext.textContent = fact.detail;
+  }
+
+  trigger.addEventListener("click", function () {
+    if (!showingFacts) {
+      showFact(0);
+      factIndex = 1;
+      return;
+    }
+
+    if (factIndex >= facts.length) {
+      showDefault();
+      factIndex = 0;
+      return;
+    }
+
+    showFact(factIndex);
+    factIndex += 1;
+  });
+
+  trigger.addEventListener("mouseleave", function () {
+    if (showingFacts) {
+      return;
+    }
+    showDefault();
+  });
 }
 
 function toggleTheme() {
@@ -169,7 +163,7 @@ function toggleTheme() {
 
 // Run once on page load (theme may already be set in <head>)
 updateThemeIcons();
-initHeroAnimations();
+initKBot();
 
 // Both buttons do the same thing
 if (themeToggle) {
